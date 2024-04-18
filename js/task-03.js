@@ -13,6 +13,27 @@ const images = [
   },
 ];
 
-const galleryList = document.createElement("li");
+// 1. images to tablica obiektów
+// 2. z obiektów tworzymy element <img>
+// 3. elementy <img> wkładamy do <li>
+// 4. aby utworzyć znaczniki uzyjemy "template strings" (tj: `template strings`)" i metody insertAdjacentHTML()
 
-galleryList.insertAdjacentHTML("afterbeing", element);
+const list = document.querySelector(".gallery"); // odwołanie się do listy ul poprzez klasę (kropka oznacza klasę - klasa gallery to: .gallery)
+
+const galleryList = images
+  .map(
+    ({ url, alt }) => `<li><img src = '${url}' alt = '${alt}' width="350"></li>`
+  )
+  .join("");
+list.insertAdjacentHTML("beforeend", galleryList);
+
+list.style.cssText = `
+display: flex;
+list-style-type: none;
+aling-items: center;
+justify-content: center;
+object-fit: cover;
+`;
+
+list.children.style.cssText = `object-fit: cover;
+`;

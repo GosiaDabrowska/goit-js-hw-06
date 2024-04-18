@@ -14,8 +14,16 @@ const ingredients = [
   "Condiments",
 ];
 
-const list = document.createElement("li"); // stworzenie listy w HTML
+const listElement = document.querySelector(`#ingredients`); // odwołanie do elementu wewnątrz html którym jest lista (element z id="ingredients")
 
-list.append(ingredients); // dodanie elementów tablicy ingredients do listy w HTML
+const fragment = document.createDocumentFragment(); // stworzenie "fragmentu"
 
-list.classList.add("item"); // dodanie klasy "item"
+for (const ingredient of ingredients) {
+  // przeiterowanie po tablicy ingredients za pomocą pętli for...of
+  const list = document.createElement("li"); // utworzenie elementu li wewnątrz listy ul
+  list.textContent = ingredient; // dodanie elemtów tablicy do li
+  list.classList.add(`item`); // przypisanie klasy do elemtu li
+  fragment.appendChild(list); // przypisanie utworzonego elementu li do "fragmentu"
+}
+
+listElement.append(fragment); // przypisanie fragmentu do ul fragment zawiera w sobie wszystkie li
