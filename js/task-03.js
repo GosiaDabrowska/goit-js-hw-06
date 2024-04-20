@@ -22,7 +22,8 @@ const list = document.querySelector(".gallery"); // odwołanie się do listy ul 
 
 const galleryList = images
   .map(
-    ({ url, alt }) => `<li><img src = '${url}' alt = '${alt}' width="350"></li>`
+    ({ url, alt }) =>
+      `<li><img src = '${url}' alt = '${alt}' width="350" height="230"></li>`
   )
   .join("");
 list.insertAdjacentHTML("beforeend", galleryList);
@@ -32,8 +33,4 @@ display: flex;
 list-style-type: none;
 aling-items: center;
 justify-content: center;
-object-fit: cover;
-`;
-
-list.children.style.cssText = `object-fit: cover;
 `;

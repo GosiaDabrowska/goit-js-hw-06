@@ -16,7 +16,7 @@ const ingredients = [
 
 const listElement = document.querySelector(`#ingredients`); // odwołanie do elementu wewnątrz html którym jest lista (element z id="ingredients")
 
-const fragment = document.createDocumentFragment(); // stworzenie "fragmentu"
+const fragment = document.createDocumentFragment(); // stworzenie "fragmentu" - potrzebny aby wg. polecenia zadania dodać wszystko do html w jednej operacji. Robiąc to bez fragment dodajesz elementy do html jeszcze wewnątrz pętli to znaczy że dodajesz je pojedynczo
 
 for (const ingredient of ingredients) {
   // przeiterowanie po tablicy ingredients za pomocą pętli for...of
